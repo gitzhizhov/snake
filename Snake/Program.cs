@@ -10,22 +10,25 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point();
+            //List<char> symbolsList = new List<char>();
 
+            //symbolsList.Add('*');
+            //symbolsList.Add('#');
+            //symbolsList.Add('&');
+            //symbolsList.Add('$');
+                        
             // создаем точку в координатах
-            p1.x = 1;
-            p1.y = 3;
-            p1.symbol = '*';
-
+            Point p1 = new Point(1, 3, '*');
             // выводим на экран
             p1.Draw();
 
-            Point p2 = new Point();
-            p2.x = 4;
-            p2.y = 5;
-            p2.symbol = '#';
-
+            Point p2 = new Point(4, 5, '#');
             p2.Draw();
+
+            HorizontalLine hLine = new HorizontalLine(1,20,8,'+');
+            hLine.Draw();
+            VerticalLine vLine = new VerticalLine(9, 20, 1, '+');
+            vLine.Draw();
 
             Console.ReadKey();
         }
