@@ -16,19 +16,29 @@ namespace Snake
             //symbolsList.Add('#');
             //symbolsList.Add('&');
             //symbolsList.Add('$');
-                        
+
+            //указываем размер окна
+            Console.SetBufferSize(80, 25);
+
+            // создаем линии
+            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
+            VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
+            VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
+            // рисуем линии
+            upLine.Draw();
+            downLine.Draw();
+            leftLine.Draw();
+            rightLine.Draw();
+
+
             // создаем точку в координатах
-            Point p1 = new Point(1, 3, '*');
+            Point p = new Point(4, 5, '*');
             // выводим на экран
-            p1.Draw();
-
-            Point p2 = new Point(4, 5, '#');
-            p2.Draw();
-
-            HorizontalLine hLine = new HorizontalLine(1,20,8,'+');
-            hLine.Draw();
-            VerticalLine vLine = new VerticalLine(9, 20, 1, '+');
-            vLine.Draw();
+            //p.Draw();
+            // создаем змею
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Draw();
 
             Console.ReadKey();
         }

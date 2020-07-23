@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class HorizontalLine
+    class HorizontalLine : Figure
     {
-        // линия набор точек
-        List<Point> pList;
-
-        public HorizontalLine(int xLeft, int xReight, int y, char sym)
+        public HorizontalLine(int xLeft, int xRight, int y, char sym)
         {
             // создаем пустой список
             pList = new List<Point>();
@@ -24,20 +21,12 @@ namespace Snake
             //pList.Add(p2);
             //pList.Add(p3);
 
-            for(int x = xLeft; x <= xReight; x++)
+            for(int x = xLeft; x <= xRight; x++)
             {
                 // создаем точки с нужными координатами
                 Point p = new Point(x, y, sym);
                 // добавляем в список
                 pList.Add(p);
-            }
-        }
-        // рисуем линию
-        public void Draw()
-        {
-            foreach(Point p in pList)
-            {
-                p.Draw();
             }
         }
     }
