@@ -21,17 +21,20 @@ namespace Snake
             //указываем размер окна
             Console.SetBufferSize(80, 25);
 
-            // создаем линии
-            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
-            HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
-            VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
-            VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
-            // рисуем линии
-            upLine.Draw();
-            downLine.Draw();
-            leftLine.Draw();
-            rightLine.Draw();
+            //// создаем линии
+            //HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
+            //HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
+            //VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
+            //VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
+            //// рисуем линии
+            //upLine.Draw();
+            //downLine.Draw();
+            //leftLine.Draw();
+            //rightLine.Draw();
 
+            // создаем стены
+            Walls walls = new Walls(80, 25);
+            walls.Draw();
 
             // создаем точку в координатах
             Point p = new Point(4, 5, '*');
@@ -47,6 +50,10 @@ namespace Snake
 
             while(true)
             {
+                // проверка на столкновение со стенкой и с собственным хвостом
+                if (walls.IsHit(snake) || snake.IsHitTail())
+                    break;
+
                 // змейка кушает
                 if (snake.Eat(food))
                 {
@@ -68,7 +75,25 @@ namespace Snake
                 }
             }
 
+            WriteGameOver();
             Console.ReadKey();
+        }
+
+        // вывод надписи окончания игры
+        static void WriteGameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+            WriteText("И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+        }
+        static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.Write(text);
         }
     }
 }

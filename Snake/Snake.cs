@@ -52,7 +52,19 @@ namespace Snake
             return nextPoint;
         }
 
-        // задает направоение движения
+        // проверка на столкновение с хвостом
+        internal bool IsHitTail()
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (head.IsHit(pList[i]))
+                    return true;
+            }
+            return false;
+        }
+
+        // задает направление движения
         public void HandlKey(ConsoleKey key)
         {
             // какая клавиша нажата
