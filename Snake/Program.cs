@@ -11,26 +11,8 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            //List<char> symbolsList = new List<char>();
-
-            //symbolsList.Add('*');
-            //symbolsList.Add('#');
-            //symbolsList.Add('&');
-            //symbolsList.Add('$');
-
             //указываем размер окна
             Console.SetBufferSize(80, 25);
-
-            //// создаем линии
-            //HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
-            //HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
-            //VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
-            //VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
-            //// рисуем линии
-            //upLine.Draw();
-            //downLine.Draw();
-            //leftLine.Draw();
-            //rightLine.Draw();
 
             // создаем стены
             Walls walls = new Walls(80, 25);
@@ -38,8 +20,7 @@ namespace Snake
 
             // создаем точку в координатах
             Point p = new Point(4, 5, '*');
-            // выводим на экран
-            //p.Draw();
+
             // создаем змею по координатам точки
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
@@ -84,7 +65,7 @@ namespace Snake
         {
             int xOffset = 25;
             int yOffset = 8;
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.SetCursorPosition(xOffset, yOffset++);
             WriteText("============================", xOffset, yOffset++);
             WriteText("И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++);

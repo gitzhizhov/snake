@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
+    /// <summary>
+    /// Класс описывает и отрисовывает стены
+    /// </summary>
     class Walls
     {
         List<Figure> wallList;
