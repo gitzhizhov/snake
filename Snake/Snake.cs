@@ -78,6 +78,7 @@ namespace Snake
                 direction = Direction.UP;
         }
 
+        // змейка кушает
         internal bool Eat(Point food)
         {
             Point head = GetNextPoint();

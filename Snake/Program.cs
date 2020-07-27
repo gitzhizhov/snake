@@ -11,12 +11,6 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            //List<char> symbolsList = new List<char>();
-
-            //symbolsList.Add('*');
-            //symbolsList.Add('#');
-            //symbolsList.Add('&');
-            //symbolsList.Add('$');
 
             //указываем размер окна
             Console.SetBufferSize(80, 25);
