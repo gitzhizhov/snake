@@ -12,9 +12,9 @@ namespace Snake
     /// </summary>
     class Point
     {
-        private int x;
-        private int y;
-        private char symbol;
+        public int x;
+        public int y;
+        public char symbol;
 
         public Point()
         {
@@ -35,7 +35,7 @@ namespace Snake
             symbol = p.symbol;
         }
 
-        // метод движения
+        // метод движения, перемещения точки
         public void move(int offset, Direction direction)
         {
             if(direction == Direction.RIGHT)
@@ -66,9 +66,24 @@ namespace Snake
             Console.Write(this.symbol);
         }
 
+        // затираем точку
+        public void Clear()
+        {
+            symbol = ' ';
+            Draw();
+        }
+
         public override string ToString()
         {
             return x + ", " + y + ", " + symbol;
+        }
+
+        // проверка попадания на точку с едой
+        // проверка на равество координат
+        // есть ли пересечение координат с текущей точкой и переданой точкой
+        internal bool IsHit(Point food)
+        {
+            return food.x == this.x && food.y == this.y;
         }
     }
 }
